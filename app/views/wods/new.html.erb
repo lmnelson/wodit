@@ -1,0 +1,8 @@
+<h1>New wod</h1>
+
+<%= bootstrap_form_for :wod, url: wods_path do |f| %>
+  <%= f.text_field :date %>
+  <%= f.text_field :time %>
+  <%= f.text_area :description %>
+  <%= f.submit "Create Wod", class: "btn btn-success" %>
+<% end %>

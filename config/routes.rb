@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :wods
   get 'static_pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  authenticated :user do
+    root :to => "wods#index", :as => "authenticated_root"
+  end
+
   root 'static_pages#home'
+
 
 
   # Example of regular route:
