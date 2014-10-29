@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-lg-4 col-lg-offset-4">
 
-    <h1>New wod</h1>
+    <h1>Edit Wod</h1>
 
     <%= bootstrap_form_for :wod, url: wods_path do |f| %>
       <%= f.text_field :name %>
       <%= f.date_select :date, use_short_month: true%>
       <%= f.time_select :time %>
       <%= f.text_area :description %>
-      <%= f.submit "Create Wod", class: "btn btn-success" %>
+      <%= f.submit "Save Changes", class: "btn btn-primary" %>
+      <%= link_to 'Cancel', root_path, class: 'btn btn-link' %>
     <% end %>
 
   </div>

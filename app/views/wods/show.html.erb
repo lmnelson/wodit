@@ -1,3 +1,9 @@
-<%= @wod.date %>
-<%= @wod.time %>
-<%= @wod.description %>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <ul class="list-unstyled">
+      <li><b>Date:</b><%= @wod.date %></li>
+      <li><b>Time:</b><%= @wod.time %></li>
+      <li><b>Description:</b><p><%= @wod.description %></p></li>
+    </ul>
+  </div>
+</div>
