@@ -4,11 +4,12 @@
       <% @wods.each do |wod| %>
       <ul class="list-unstyled">
         <li><b>Name:</b><%= wod.name %></li>
+        <li><b>Creator:</b><%= wod.user.email %></li>
         <li><b>Date:</b><%= wod.date %></li>
         <li><b>Time:</b><%= wod.time %></li>
         <li><b>Description:</b><p><%= wod.description %></p></li>
       </ul>
-      <% if user_signed_in? %>
+      <% if current_user %>
       <%= link_to "Edit", edit_wod_path(wod), class: "btn btn-xs btn-default" %>
       <%= link_to "Delete", wod, method: :delete, class: "btn btn-xs btn-danger" %>
       <% end %>

@@ -3,7 +3,7 @@
 
     <h1>Edit Wod</h1>
 
-    <%= bootstrap_form_for :wod, url: wods_path do |f| %>
+    <%= bootstrap_form_for (@wod) do |f| %>
       <%= f.text_field :name %>
       <%= f.date_select :date, use_short_month: true%>
       <%= f.time_select :time %>
