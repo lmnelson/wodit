@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :wods
   get 'static_pages/home'
 
@@ -41,6 +42,10 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+
+  resources :user do
+    resources :wods
+  end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

@@ -1,25 +1,50 @@
 <div class="row">
-  <div class="col-lg-4 col-lg-offset-4">
+  <div class="col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Profile</h2>
+      </div>
+      <div class="panel-body">
+
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
     <% if @wods.any? %>
       <% @wods.each do |wod| %>
-      <ul class="list-unstyled">
-        <li><b>Name:</b><%= wod.name %></li>
-        <li><b>Creator:</b><%= wod.user.email %></li>
-        <li><b>Date:</b><%= wod.date %></li>
-        <li><b>Time:</b><%= wod.time %></li>
-        <li><b>Description:</b><p><%= wod.description %></p></li>
-      </ul>
-      <% if current_user %>
-      <%= link_to "Edit", edit_wod_path(wod), class: "btn btn-xs btn-default" %>
-      <%= link_to "Delete", wod, method: :delete, class: "btn btn-xs btn-danger" %>
-      <% end %>
-      <hr>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><%= wod.name %></h2>
+        </div>
+        <div class="panel-body">
+          <ul class="list-unstyled">
+            <li><b>Creator:</b><%= wod.user.email %></li>
+            <li><b>Date:</b><%= wod.date %></li>
+            <li><b>Time:</b><%= wod.time %></li>
+          </ul>
+          <hr>
+          <p><%= wod.description %></p>
+        </div>
+        <div class="panel-footer">
+          <%= link_to "Edit", edit_wod_path(wod), class: "btn btn-xs btn-default" %>
+          <%= link_to "Delete", wod, method: :delete, class: "btn btn-xs btn-danger" %>
+        </div>
+      </div>
+
       <% end %>
     <% else %>
-    <div class="blank-slate">
-      <h2>No wods yet</h2>
+    <div class="blank-slate bg-warning clearfix">
+      <h4 class="text-center">No wods yet</h4>
     </div>
     <% end %>
+  </div>
+  <div class="col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>This is where ads or something like that could go</p>
+      </div>
+    </div>
   </div>
 </div>
 

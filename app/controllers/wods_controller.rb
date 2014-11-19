@@ -28,7 +28,7 @@ class WodsController < ApplicationController
     @wod = @user.wods.find(params[:id])
     @wods = @user.wods
     if @wod.update_attributes(wod_params)
-      flash[:notice] = 'Updated.'
+      flash[:notice] = 'Wod successfully updated'
       redirect_to(root_path)
     else
       render "edit"
