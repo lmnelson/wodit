@@ -1,4 +1,4 @@
-class RenameOrgProfilesToOrg < ActiveRecord::Migration
+class RenameOrgProfiles < ActiveRecord::Migration
 
   def change
     rename_table :org_profiles, :org
