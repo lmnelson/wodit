@@ -2,10 +2,21 @@
   <div class="col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2 class="panel-title">Profile</h2>
+        <h2 class="panel-title">Profile <%= link_to 'Edit', root_path, class: 'btn btn-xs pull-right btn-default' %></h2>
       </div>
       <div class="panel-body">
-
+        <% if @org.private_org? %>
+          <p><span class="badge">Private</span></p>
+        <% else %>
+          <p><span class="badge">Public</span></p>
+        <% end %>
+        <p><strong><%= @org.name %></strong></p>
+        <% if @org.description? %>
+          <%= @org.description %>
+        <% else %>
+          <p class="text-muted">Gym Title</p>
+          <p class="text-muted">Gym Description</p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -15,7 +26,9 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2 class="panel-title"><%= wod.name %></h2>
+          <h2 class="panel-title">
+            <%= wod.name %>
+          </h2>
         </div>
         <div class="panel-body">
           <ul class="list-unstyled">

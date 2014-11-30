@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107084356) do
+ActiveRecord::Schema.define(version: 20141124071051) do
 
-  create_table "org_profiles", force: true do |t|
+  create_table "orgs", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "user_id"
+    t.boolean  "private_org"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
-  add_index "org_profiles", ["user_id"], name: "index_org_profiles_on_user_id"
+  add_index "orgs", ["user_id"], name: "index_orgs_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 20141107084356) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,10 +1,18 @@
 class WodsController < ApplicationController
 
   before_action :current_user
+  before_filter :create_org
+
+  def create_org
+    @id = current_user.id
+    @org = Org.new(user_id: @id).save
+
+  end
 
   def index
     @user = current_user
     @wods = @user.wods
+    @org = @user.org
   end
 
   def create
